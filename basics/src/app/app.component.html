@@ -1,0 +1,37 @@
+<h1> {{formationName}} </h1>
+
+
+<h3> Montant  d'achat : {{ amount }} </h3>
+
+
+<p>
+  is raining : {{ isRaining }}
+</p>
+
+<p>
+  {{ employees }}
+</p>
+
+<h3>Employees list</h3>
+
+<hr>
+
+<ul>
+
+  <li   *ngFor="let emp of employees" > 
+    
+    <!--    <h3 style="color: red;"   *ngIf=" emp.year < 2019 "  >   {{emp.fullname}}</h3>
+    <h3 style="color: green;"  *ngIf=" emp.year  >= 2019  "  >   {{emp.fullname}}</h3>
+-->
+
+
+    <h3 [ngClass]=" ( emp.year < 2019) ? 'old' : 'new'   ">   {{emp.fullname}}</h3>
+ 
+
+
+    <p> {{ emp.email }} / {{emp.address}} </p>
+  </li>
+
+ 
+
+</ul>
