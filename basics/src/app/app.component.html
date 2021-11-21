@@ -1,4 +1,4 @@
-<h1> {{formationName}} </h1>
+<!--<h1> {{formationName}} </h1>
 
 
 <h3> Montant  d'achat : {{ amount }} </h3>
@@ -20,9 +20,9 @@
 
   <li   *ngFor="let emp of employees" > 
     
-    <!--    <h3 style="color: red;"   *ngIf=" emp.year < 2019 "  >   {{emp.fullname}}</h3>
+     <h3 style="color: red;"   *ngIf=" emp.year < 2019 "  >   {{emp.fullname}}</h3>
     <h3 style="color: green;"  *ngIf=" emp.year  >= 2019  "  >   {{emp.fullname}}</h3>
--->
+  
 
 
     <h3 [ngClass]=" ( emp.year < 2019) ? 'old' : 'new'   ">   {{emp.fullname}}</h3>
@@ -30,8 +30,80 @@
 
 
     <p> {{ emp.email }} / {{emp.address}} </p>
-  </li>
+  </li> 
+</ul>-->
+
+
+<!--
+<p id="para">
+  {{ content }}
+</p>
+
+<p [innerHTML]="content" ></p>
+
+
+<img width="250px" [src]="imgSRC" alt="">-->
 
  
+<!--
 
-</ul>
+<p>
+  {{  today | date:'medium'  }}
+</p>
+
+<p>
+  montant : {{ 2850 | currency:'TND' }}
+</p>
+
+<p>
+  chiffe : {{ 14000000000 | number }}
+</p>
+
+<p>
+  {{  'hello world' | uppercase  }}
+</p>
+
+<p>
+  {{  'HELLO WORLD' | lowercase  }}
+</p>
+
+
+<hr>
+
+
+<p>
+  {{ 'tchourabi@gmail.com' | email }}
+</p>
+
+<p>
+  {{ 'test@yahoo.fr' | email }}
+</p>-->
+
+
+<!--************************************events*************************************-->
+
+                                
+<!--<button (click)="btnClick()"    >  {{   click ==0 ? 'click me ' : click+' click(s)'   }} </button>-->
+
+<!--
+<p *ngIf="blocTextIsShown">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis nam tempore provident possimus atque consequuntur mollitia quibusdam facilis nesciunt! Quis quaerat ex aspernatur quod ratione, necessitatibus rerum quisquam minima quas.
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab, quaerat necessitatibus. Blanditiis soluta eos omnis earum, non quas! Dolores vel maxime in fuga commodi voluptate ratione quas officiis suscipit consequatur!
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis esse saepe vitae nam, numquam qui, earum minima quasi quod eos, illum voluptatem? Itaque cupiditate qui accusantium corporis accusamus saepe optio?
+</p>
+
+<button (click)="toggleTextBloc()" >{{  blocTextIsShown == true ? 'hide' : 'show'  }}</button>-->
+
+
+<!--
+<input type="text" (keyup)="typing($event)"  placeholder="please type in your message...">
+<p *ngIf="isTyping" >
+  <small>is typing...</small>
+</p>-->
+
+
+<div class="feild"   (mousemove)="isMoving($event)"    >
+  <div class="ball" [style.top]=" y " [style.left]=" x " >
+    test
+  </div>
+</div>
