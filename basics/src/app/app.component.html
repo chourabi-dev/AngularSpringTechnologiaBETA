@@ -101,9 +101,146 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis esse saepe vitae n
   <small>is typing...</small>
 </p>-->
 
-
+<!--
 <div class="feild"   (mousemove)="isMoving($event)"    >
   <div class="ball" [style.top]=" y " [style.left]=" x " >
     test
   </div>
+</div>-->
+
+
+<!--**************************************forms*******************************************-->
+
+<!--
+<form [formGroup]="stepper" (ngSubmit)="add()" >
+    <div *ngIf="index == 0" >
+
+      <div formGroupName="stepOne" >
+        <div>
+          <label for="">Fullname  </label><br>
+          <input type="text" formControlName="fullname"><br> 
+        </div> 
+      
+        <div>
+          <label for="">Email   </label><br>
+          <input type="email" formControlName="email"  ><br>
+        </div>
+      
+      
+        <div>
+          <label for="">Address   </label><br>
+          <input type="text" formControlName="address" ><br>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div *ngIf="index == 1">
+      <div formGroupName="stepTwo" >
+        <div>
+          <label for="">City </label><br>
+          <input type="text" formControlName="city"><br> 
+        </div> 
+      
+        <div>
+          <label for="">Code   </label><br>
+          <input type="email" formControlName="code"  ><br>
+        </div> 
+      </div>
+    </div>
+
+
+    <div *ngIf="index == 2">
+      <div formGroupName="stepThree" >
+
+
+        <div>
+          <label for="">Username </label><br>
+          <input type="text" formControlName="username"><br> 
+        </div> 
+        
+        
+        <div>
+          <button type="submit" [disabled]="! stepper.valid" >Add</button>
+        </div>
+      </div>
+    </div>
+
+
+
+</form>
+
+
+<button *ngIf="index != 0" (click)="previous()">previous</button> <button (click)="next()" >next</button> 
+
+
+-->
+
+<div class="bloc">
+  <div>
+    
+<h3>Add employee form    </h3>
+<form [formGroup]="formData" (ngSubmit)="addEmployee()" >
+  <div>
+    <label for="">Fullname  <span class="danger" *ngIf="formData.controls.fullname.valid == false"  >*</span></label><br>
+    <input type="text" formControlName="fullname"><br>
+
+    <p>
+      <small>this feild is required, and it must be more than 5 chars</small>
+    </p>
+
+  </div>
+
+
+
+  <div>
+    <label for="">Email   </label><br>
+    <input type="email" formControlName="email" 
+    [ngClass]="  formData.controls.email.valid == true ? 'form-success':'form-danger' " ><br>
+  </div>
+
+
+  <div>
+    <label for="">Address <span class="danger" *ngIf="formData.controls.address.valid == false"  >*</span> </label><br>
+    <input type="text" formControlName="address" ><br>
+  </div>
+  
+  <div>
+    <button type="submit" [disabled]=" ! formData.valid " >Add</button>
+  </div>
+  
+
+
+</form>
+  </div>
+  <div>
+
+    <h3>List of employees:</h3>
+
+    <input type="search" placeholder="Search..."  (keyup)="searchFor($event)" >
+
+    <ul  *ngIf="resultSearch.length == 0">
+      <li *ngFor="let e of employees">
+        <p> <strong>{{e.fullname}}</strong> <br> <small>{{e.email}} / {{ e.address }}</small> </p>
+      </li>
+    </ul>
+
+    <ul *ngIf="resultSearch.length != 0">
+      <li *ngFor="let e of resultSearch">
+        <p> <strong>{{e.fullname}}</strong> <br> <small>{{e.email}} / {{ e.address }}</small> </p>
+      </li>
+    </ul>
+
+    
+
+  </div>
 </div>
+
+ 
+
+
+
+
+
+

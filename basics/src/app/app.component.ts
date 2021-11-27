@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from './models/employee';
 
 @Component({
@@ -65,10 +66,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  ngOnInit(){
-    console.log("on init");
-   // this.initGallery();
-  }
+
 
 /*
   initGallery(){
@@ -83,7 +81,7 @@ export class AppComponent implements OnInit {
     }, 2000 )
   }*/
 
-
+/*
 
 
   click = 0;
@@ -106,7 +104,7 @@ export class AppComponent implements OnInit {
 
   /**************************** */
 
-
+/*
   isTyping = false;
 
   typing(e){  
@@ -135,6 +133,91 @@ export class AppComponent implements OnInit {
     this.x = clientX+'px';
     this.y = clientY+'px';
      
+  }*/
+
+
+
+
+
+  /********************************forms*************************************** */
+
+
+
+  employees:any[] = [];
+  resultSearch:any[] = [];
+  
+
+
+
+
+  formData = new FormGroup({
+    fullname: new FormControl('', [Validators.required,Validators.minLength(5)] ),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    address : new FormControl('', Validators.required),
+  });
+
+
+  addEmployee(){
+    const data = this.formData.value;
+
+    console.log(data);
+    
+    this.employees.push(data);
+
+    this.formData.reset();
   }
 
+
+  searchFor(e){
+    const val = e.target.value;
+
+    
+    this.resultSearch = ( this.employees.filter( (e)=> e.fullname.indexOf(val) != -1 ) );
+    
+
+  }
+
+
+
+
+/*
+
+  index = 0;
+
+  stepper = new FormGroup({
+    stepOne : new FormGroup({
+      fullname: new FormControl('', [Validators.required] ),
+      email: new FormControl('', [Validators.required]),
+      address : new FormControl('', Validators.required),
+    }),
+    stepTwo : new FormGroup({
+      city: new FormControl('', [Validators.required] ),
+      code: new FormControl('', [Validators.required]), 
+    }),
+    stepThree : new FormGroup({
+      username: new FormControl('', [Validators.required] )
+    })
+    
+  })
+*/
+
+  ngOnInit(){ 
+  }
+
+/*
+
+  next(){
+    this.index++;
+  }
+
+
+  previous(){
+    this.index--;
+  }
+
+
+  add(){
+    console.log(this.stepper.value);
+    
+  }*/
 }

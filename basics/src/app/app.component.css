@@ -23,3 +23,29 @@
     background-color: white;
     position: absolute;
 }
+
+.danger{
+    color: red;
+}
+
+.form-danger{
+    border: 1px solid rgb(250, 127, 127);
+}
+
+
+.form-success{
+    border: 1px solid rgb(117, 214, 104);
+}
+
+input{
+    outline: none;
+}
+
+
+body{
+    margin: 0;
+}
+.bloc > div{
+    width: 50%;
+    float: left;
+}
