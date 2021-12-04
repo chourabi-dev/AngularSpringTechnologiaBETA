@@ -1,0 +1,9 @@
+<h3>Users list</h3>
+
+<ul>
+    <li *ngFor="let u of users">
+        <!--<a [routerLink]=" '/user/'+u.name+'/details' ">{{u.name}}</a>-->
+
+        <p (click)="showUserDetails(u)" >{{u.name}}</p>
+    </li>
+</ul>

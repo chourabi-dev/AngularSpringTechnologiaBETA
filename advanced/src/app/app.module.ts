@@ -12,6 +12,11 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { HistoireComponent } from './histoire/histoire.component';
 import { ExpertiseComponent } from './expertise/expertise.component';
+import { UsersComponent } from './pages/users/users.component';
+import { UserComponent } from './pages/user/user.component';
+import { NotfoundComponent } from './page/notfound/notfound.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +29,17 @@ import { ExpertiseComponent } from './expertise/expertise.component';
     AboutPageComponent,
     FavoritesPageComponent,
     HistoireComponent,
-    ExpertiseComponent
+    ExpertiseComponent,
+    UsersComponent,
+    UserComponent,
+    NotfoundComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
