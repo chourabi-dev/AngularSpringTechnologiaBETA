@@ -30,6 +30,7 @@ export class SigninComponent implements OnInit {
       // redirect to /home
       this.router.navigateByUrl('/home');
 
+      // server => token           // token
       localStorage.setItem('auth','123456') // 123456 token jwt 
 
       

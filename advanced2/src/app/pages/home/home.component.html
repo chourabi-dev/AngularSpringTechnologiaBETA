@@ -1,0 +1,16 @@
+<h1>Users list</h1>
+<p>
+    click on user name for more details !!
+</p>
+
+<a routerLink="/hoem/user/add">add new user</a>
+
+<ul>
+    <li *ngFor="let u of users">
+        <p>
+            <a [routerLink]="  '/user/'   +   u.id   " >{{ u.username }}</a> <br>
+
+            <small>{{u.email}}</small>
+        </p>
+    </li>
+</ul>
